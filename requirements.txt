@@ -90,3 +90,4 @@ websockets==13.1
 Werkzeug==3.0.3
 xyzservices==2024.6.0
 yarl==1.17.2
+gunicorn
