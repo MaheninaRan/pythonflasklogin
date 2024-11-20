@@ -12,6 +12,7 @@ google_bp = make_google_blueprint(
     client_secret="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",
     redirect_to="login.google_authorized"
 )
+
 # Assurez-vous d'enregistrer google_bp dans __init__.py également.
 
 # Route pour gérer la connexion Google
