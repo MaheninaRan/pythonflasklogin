@@ -16,7 +16,7 @@ google_bp = make_google_blueprint(
 # Assurez-vous d'enregistrer google_bp dans __init__.py également.
 
 # Route pour gérer la connexion Google
-@login_bp.route('/google_login')
+@login_bp.route('/google_login',methods=['GET'])
 def google_login():
     if not google.authorized:
         return redirect(url_for('google.login'))
