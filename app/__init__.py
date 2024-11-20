@@ -16,8 +16,7 @@ def create_app(config_name='default'):
     from .controller.loginController import login_bp
     app.register_blueprint(main)
     app.register_blueprint(login_bp)
-    app.register_blueprint(login_bp, url_prefix='/api')
-    app.register_blueprint(google_bp, url_prefix='/google_login')
+    app.register_blueprint(google_bp)
 
     
     CORS(app)
