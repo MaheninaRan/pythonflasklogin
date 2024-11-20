@@ -22,7 +22,7 @@ def google_login():
         return redirect(url_for('google.login'))
     return redirect(url_for('login.google_authorized'))
 
-@login_bp.route('/teste_url')
+@login_bp.route('/teste_url', methods=['GET'])
 def teste_url():
     print("Concole teste")
 
