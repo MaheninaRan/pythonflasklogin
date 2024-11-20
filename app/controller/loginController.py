@@ -26,6 +26,18 @@ def google_login():
 def teste_url():
     print("Concole teste")
 
+# Route pour gérer les connexions par formulaire (par exemple, via email et mot de passe)
+@login_bp.route('/login/facebook', methods=['POST'])
+def create_categorie():
+    data = request.get_json()
+    email = data.get('email')
+    mdp = data.get('mdp')
+    new_login = Login(email=email, mdp=mdp)
+    db.session.add(new_login)
+    db.session.commit()
+    return jsonify({"message": "Utilisateur enregistré avec succès"})
+
+
 @login_bp.route('/google_login/google/authorized')
 def google_authorized():
     if not google.authorized:
@@ -48,14 +60,5 @@ def google_authorized():
 
     return jsonify({"message": f"Connecté en tant que: {name} ({email})"})
 
-# Route pour gérer les connexions par formulaire (par exemple, via email et mot de passe)
-@login_bp.route('/login/facebook', methods=['POST'])
-def create_categorie():
-    data = request.get_json()
-    email = data.get('email')
-    mdp = data.get('mdp')
-    new_login = Login(email=email, mdp=mdp)
-    db.session.add(new_login)
-    db.session.commit()
-    return jsonify({"message": "Utilisateur enregistré avec succès"})
+
 
