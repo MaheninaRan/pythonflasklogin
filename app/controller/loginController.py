@@ -10,7 +10,7 @@ login_bp = Blueprint('login', __name__)
 google_bp = make_google_blueprint(
     client_id="1008945689071-7rojkvcm7hnq0n11r2drh2siusnuooj7.apps.googleusercontent.com",
     client_secret="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",
-    redirect_to="login.google_authorized"
+    redirect_to="google_authorized"
 )
 
 # Assurez-vous d'enregistrer google_bp dans __init__.py également.
@@ -20,7 +20,7 @@ google_bp = make_google_blueprint(
 def google_login():
     if not google.authorized:
         return redirect(url_for('google.login'))
-    return redirect(url_for('login.google_authorized'))
+    return redirect(url_for('google_authorized'))
 
 @login_bp.route('/teste_url', methods=['GET'])
 def teste_url():
