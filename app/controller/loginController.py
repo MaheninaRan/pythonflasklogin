@@ -22,7 +22,10 @@ def google_login():
         return redirect(url_for('google.login'))
     return redirect(url_for('login.google_authorized'))
 
-# Route pour gérer la redirection après l'authentification Google
+@login_bp.route('/teste_url')
+def teste_url():
+    print("Concole teste")
+
 @login_bp.route('/google_login/google/authorized')
 def google_authorized():
     if not google.authorized:
