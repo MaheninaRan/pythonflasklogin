@@ -1,0 +1,27 @@
+
+-Ouvrir google cloud console
+-Dans la section projet : Cliquer "Nouveau Projet"
+-Donner un nom au projet puis cliquer sur "Creer"
+-Sur le menu a gauche selectionner "API et Service"
+    Puis sur "Identifiant"
+        En haut, clique le boutton blue ecrit "CONFIGURER L'ECRAN DE CONSENTEMENT"
+            Choisissez option "Externe" puis cliquer sur Creer
+            Donner un nom au projet pour le 1er champ
+            Votre email autant qu'utilisateur sur la 2e champ
+            Votre email autant que developpeur sur la dernier champ
+            Continue jusqu'a revenir sur dashboard
+
+    Vous choisissez encore l'option "Identifiant" 
+        En haut, cliquer sur "Creer des Identifiants" -> "ID cliend OAuth"
+        Choisir le type appication pour "Application Web"
+        Sur le name exemple : "Flask Client"
+        Ajouter un URIs autorisee : l'url qui fait appelle au connexion google
+            Ex : http://127.0.0.1:5000/callback
+
+-Telecharger le fichier json
+
+
+
+
+
+

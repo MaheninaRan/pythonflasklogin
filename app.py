@@ -1,7 +1,7 @@
 import os
 import pathlib
 import requests
-from flask import Flask, session, abort, redirect, request
+from flask import Flask, session, abort, redirect, request,jsonify
 from google.oauth2 import id_token
 from google_auth_oauthlib.flow import Flow
 from pip._vendor import cachecontrol
@@ -58,6 +58,10 @@ def callback():
         # Enregistre les informations d'identité dans la session
         session["google_id"] = id_info.get("sub")
         session["name"] = id_info.get("name")
+        session["email"] = id_info.get("email")
+        session["picture"] = id_info.get("picture")
+
+
         return redirect("/protected_area")
 
     except google.auth.exceptions.InvalidValue as e:
@@ -79,7 +83,8 @@ def index():
 @app.route("/protected_area")
 @login_is_required
 def protected_area():
-    return f"Hello {session['name']}! <br/> <a href='/logout'><button>Logout</button></a>"
+    return f"Profil connecté {session['name']}! <br/>Email :  {session['email']} <br/> <img src='{session['picture']}' alt='photo'/> <a href='/logout'><button>Logout</button></a>"
+
 
 if __name__ == "__main__":
     app.run(debug=True)
